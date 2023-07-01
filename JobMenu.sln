@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobMenu", "JobMenu\JobMenu.csproj", "{8DF1CA8D-95FA-40C7-A56C-1FC39050B9A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DF1CA8D-95FA-40C7-A56C-1FC39050B9A6}.Debug|x64.ActiveCfg = Debug|x64
+		{8DF1CA8D-95FA-40C7-A56C-1FC39050B9A6}.Debug|x64.Build.0 = Debug|x64
+		{8DF1CA8D-95FA-40C7-A56C-1FC39050B9A6}.Release|x64.ActiveCfg = Release|x64
+		{8DF1CA8D-95FA-40C7-A56C-1FC39050B9A6}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FFB447C-B704-4736-B0DD-5A5AF9EBDC97}
+	EndGlobalSection
+EndGlobal
