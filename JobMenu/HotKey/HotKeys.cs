@@ -64,22 +64,29 @@ public class HotKeys
     {
         while (!_disposed)
         {
-            foreach (var key in HotKeyDirts.Values)
+            if (HotKeyDirts.Count > 0)
             {
-                if (IsKeyPressed(key.Key))
+                var keyInfos = new List<KeyInfo>(HotKeyDirts.Values);
+                if (keyInfos != null && keyInfos.Count > 0)
                 {
-                    if (!key.IsKeyDown)
+                    foreach (var key in keyInfos)
                     {
-                        key.IsKeyDown = true;
-                        OnKeyDown(key.Key);
-                    }
-                }
-                else
-                {
-                    if (key.IsKeyDown)
-                    {
-                        key.IsKeyDown = false;
-                        OnKeyUp(key.Key);
+                        if (IsKeyPressed(key.Key))
+                        {
+                            if (!key.IsKeyDown)
+                            {
+                                key.IsKeyDown = true;
+                                OnKeyDown(key.Key);
+                            }
+                        }
+                        else
+                        {
+                            if (key.IsKeyDown)
+                            {
+                                key.IsKeyDown = false;
+                                OnKeyUp(key.Key);
+                            }
+                        }
                     }
                 }
             }
