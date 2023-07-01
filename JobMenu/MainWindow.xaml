@@ -6,9 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Name="Window_Main"
     Title="GTA5 任务菜单"
-    Width="350"
-    Height="500"
+    Width="300"
+    Height="450"
     Closing="Window_Closing"
+    FontFamily="/Assets/Fonts/#阿里巴巴普惠体 3.0 55 Regular"
+    FontSize="14"
     Foreground="White"
     Loaded="Window_Loaded"
     ResizeMode="NoResize"
@@ -19,14 +21,14 @@
     mc:Ignorable="d">
 
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="10" GlassFrameThickness="-1" />
+        <WindowChrome CaptionHeight="0" GlassFrameThickness="-1" />
     </WindowChrome.WindowChrome>
 
     <Window.Template>
         <ControlTemplate TargetType="{x:Type Window}">
             <Border Background="Transparent" SnapsToDevicePixels="True">
                 <Grid>
-                    <Border Background="#000" Opacity="0.5" />
+                    <Border Background="#000" Opacity="0.6" />
                     <!--  //////////////  -->
                     <Grid>
                         <Grid.RowDefinitions>
@@ -34,15 +36,7 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <!--  //////////////  -->
-                        <Border Height="10">
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Offset="0.0" Color="#0B3C7B" />
-                                    <GradientStop Offset="0.5" Color="#164A8C" />
-                                    <GradientStop Offset="1.0" Color="#2E69BB" />
-                                </LinearGradientBrush>
-                            </Border.Background>
-                        </Border>
+                        <Border Height="10" Background="#2660AD" />
                         <!--  //////////////  -->
                         <ContentPresenter Grid.Row="1" ClipToBounds="True" />
                     </Grid>
@@ -51,14 +45,94 @@
         </ControlTemplate>
     </Window.Template>
 
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <!--  //////////////  -->
-        <StackPanel Grid.Row="1">
-            <CheckBox Content="2333" />
+        <StackPanel>
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="24"
+                FontWeight="Bold"
+                Text="GTA5 任务菜单" />
+            <Separator Margin="0,5,0,10" />
+        </StackPanel>
+        <!--  //////////////  -->
+        <UniformGrid Grid.Row="1" Columns="2">
+            <StackPanel>
+                <TextBlock Margin="0,0,0,5">
+                    <Bold>F5</Bold>
+                    传送到导航点</TextBlock>
+                <TextBlock Margin="0,0,0,5">
+                    <Bold>F6</Bold>
+                    传送到目标点</TextBlock>
+                <TextBlock Margin="0,0,0,5">
+                    <Bold>F7</Bold>
+                    传送到准星处</TextBlock>
+            </StackPanel>
+            <!--  //////////////  -->
+            <StackPanel>
+                <TextBlock
+                    Margin="0,0,0,5"
+                    Foreground="#FFA819"
+                    Text="✔ 玩家无敌已开启" />
+                <TextBlock
+                    Margin="0,0,0,5"
+                    Foreground="#FFA819"
+                    Text="✔ 无限弹夹已开启" />
+            </StackPanel>
+        </UniformGrid>
+        <!--  //////////////  -->
+        <StackPanel Grid.Row="2">
+            <Separator Margin="0,5,0,10" />
+            <WrapPanel>
+                <Button
+                    Name="Button_FillAllAmmo"
+                    Click="Button_FillAllAmmo_Click"
+                    Content="补满全部弹药" />
+                <Button
+                    x:Name="Button_StopCutscene"
+                    Click="Button_StopCutscene_Click"
+                    Content="结束过场动画" />
+                <Button
+                    x:Name="Button_Suicide"
+                    Click="Button_Suicide_Click"
+                    Content="自杀" />
+            </WrapPanel>
+            <Separator Margin="0,5,0,10" />
+            <WrapPanel>
+                <Button
+                    x:Name="Button_GetInOnlinePV"
+                    Click="Button_GetInOnlinePV_Click"
+                    Content="坐进个人载具" />
+            </WrapPanel>
+            <Separator Margin="0,5,0,10" />
+            <WrapPanel>
+                <Button Click="Button_Telport_Click" Content="事务所" />
+                <Button Click="Button_Telport_Click" Content="夜总会" />
+                <Button Click="Button_Telport_Click" Content="会所" />
+                <Button Click="Button_Telport_Click" Content="虎鲸" />
+            </WrapPanel>
+            <Separator Margin="0,5,0,10" />
+            <WrapPanel>
+                <Button Click="Button_Telport_Click" Content="洛圣都改车王" />
+                <Button Click="Button_Telport_Click" Content="地铁隧道" />
+                <Button Click="Button_Telport_Click" Content="火车隧道" />
+            </WrapPanel>
+        </StackPanel>
+        <!--  //////////////  -->
+        <StackPanel Grid.Row="4">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button
+                    Name="Button_ExitApp"
+                    Margin="0"
+                    Click="Button_ExitApp_Click"
+                    Content="退出菜单" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 
