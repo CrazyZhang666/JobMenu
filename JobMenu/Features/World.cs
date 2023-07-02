@@ -24,6 +24,15 @@ public static class World
             if (oHostility > 0x01)
             {
                 Memory.Write(pCPed + CPed.Health, 0.0f);
+
+                var pCVehicle = Memory.Read<long>(pCPed + CPed.CVehicle);
+                if (!Memory.IsValid(pCVehicle))
+                    continue;
+
+                Memory.Write(pCVehicle + CVehicle.Health, -1.0f);
+                Memory.Write(pCVehicle + CVehicle.HealthBody, -1.0f);
+                Memory.Write(pCVehicle + CVehicle.HealthPetrolTank, -1.0f);
+                Memory.Write(pCVehicle + CVehicle.HealthEngine, -1.0f);
             }
         }
     }
@@ -51,6 +60,15 @@ public static class World
                 ped_type == (int)PedType.ARMY)
             {
                 Memory.Write(pCPed + CPed.Health, 0.0f);
+
+                var pCVehicle = Memory.Read<long>(pCPed + CPed.CVehicle);
+                if (!Memory.IsValid(pCVehicle))
+                    continue;
+
+                Memory.Write(pCVehicle + CVehicle.Health, -1.0f);
+                Memory.Write(pCVehicle + CVehicle.HealthBody, -1.0f);
+                Memory.Write(pCVehicle + CVehicle.HealthPetrolTank, -1.0f);
+                Memory.Write(pCVehicle + CVehicle.HealthEngine, -1.0f);
             }
         }
     }
