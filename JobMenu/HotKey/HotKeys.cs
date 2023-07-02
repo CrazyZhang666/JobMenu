@@ -64,33 +64,35 @@ public class HotKeys
     {
         while (!_disposed)
         {
-            if (HotKeyDirts.Count > 0)
+            if (HotKeyDirts.Count == 0)
+                goto SLEEP;
+
+            // 防止枚举异常
+            var keyInfos = new List<KeyInfo>(HotKeyDirts.Values);
+            if (keyInfos.Count == 0)
+                goto SLEEP;
+
+            foreach (var key in keyInfos)
             {
-                var keyInfos = new List<KeyInfo>(HotKeyDirts.Values);
-                if (keyInfos != null && keyInfos.Count > 0)
+                if (IsKeyPressed(key.Key))
                 {
-                    foreach (var key in keyInfos)
+                    if (!key.IsKeyDown)
                     {
-                        if (IsKeyPressed(key.Key))
-                        {
-                            if (!key.IsKeyDown)
-                            {
-                                key.IsKeyDown = true;
-                                OnKeyDown(key.Key);
-                            }
-                        }
-                        else
-                        {
-                            if (key.IsKeyDown)
-                            {
-                                key.IsKeyDown = false;
-                                OnKeyUp(key.Key);
-                            }
-                        }
+                        key.IsKeyDown = true;
+                        OnKeyDown(key.Key);
+                    }
+                }
+                else
+                {
+                    if (key.IsKeyDown)
+                    {
+                        key.IsKeyDown = false;
+                        OnKeyUp(key.Key);
                     }
                 }
             }
 
+        SLEEP:
             Thread.Sleep(20);
         }
     }

@@ -62,54 +62,80 @@
             <Separator Margin="0,5,0,10" />
         </StackPanel>
         <!--  //////////////  -->
-        <UniformGrid Grid.Row="1" Columns="2">
-            <StackPanel>
-                <TextBlock Margin="0,0,0,5">
-                    <Bold>F5</Bold>
-                    传送到导航点</TextBlock>
-                <TextBlock Margin="0,0,0,5">
-                    <Bold>F6</Bold>
-                    传送到目标点</TextBlock>
-                <TextBlock Margin="0,0,0,5">
-                    <Bold>F7</Bold>
-                    传送到准星处</TextBlock>
-            </StackPanel>
+        <StackPanel Grid.Row="1">
+            <UniformGrid Columns="2">
+                <StackPanel>
+                    <TextBlock Margin="0,0,0,5">
+                        <Bold>F3</Bold>
+                        传送到准星处</TextBlock>
+                    <TextBlock Margin="0,0,0,5">
+                        <Bold>F4</Bold>
+                        坐标向前微调</TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Margin="0,0,0,5">
+                        <Bold>F5</Bold>
+                        传送到导航点</TextBlock>
+                    <TextBlock Margin="0,0,0,5">
+                        <Bold>F6</Bold>
+                        传送到目标点</TextBlock>
+                    <TextBlock Margin="0,0,0,5">
+                        <Bold>F7</Bold>
+                        补满载具血量</TextBlock>
+                </StackPanel>
+            </UniformGrid>
             <!--  //////////////  -->
-            <StackPanel>
+            <Separator Margin="0,5,0,10" />
+            <UniformGrid Columns="2">
                 <TextBlock
                     Margin="0,0,0,5"
                     Foreground="#FFA819"
-                    Text="✔ 玩家无敌已开启" />
+                    Text="✔ 玩家无敌" />
                 <TextBlock
                     Margin="0,0,0,5"
                     Foreground="#FFA819"
-                    Text="✔ 无限弹夹已开启" />
-            </StackPanel>
-        </UniformGrid>
+                    Text="✔ 无限弹夹" />
+            </UniformGrid>
+        </StackPanel>
         <!--  //////////////  -->
         <StackPanel Grid.Row="2">
+            <!--  //////////////  -->
             <Separator Margin="0,5,0,10" />
             <WrapPanel>
-                <Button
-                    Name="Button_FillAllAmmo"
-                    Click="Button_FillAllAmmo_Click"
-                    Content="补满全部弹药" />
                 <Button
                     x:Name="Button_StopCutscene"
                     Click="Button_StopCutscene_Click"
                     Content="结束过场动画" />
                 <Button
+                    Name="Button_FillAllAmmo"
+                    Click="Button_FillAllAmmo_Click"
+                    Content="补满全部弹药" />
+                <Button
                     x:Name="Button_Suicide"
                     Click="Button_Suicide_Click"
                     Content="自杀" />
             </WrapPanel>
-            <Separator Margin="0,5,0,10" />
             <WrapPanel>
                 <Button
                     x:Name="Button_GetInOnlinePV"
                     Click="Button_GetInOnlinePV_Click"
                     Content="坐进个人载具" />
+                <Button
+                    x:Name="Button_VehicleExtra_0x40"
+                    Click="Button_VehicleExtra_0x40_Click"
+                    Content="载具火箭推进" />
             </WrapPanel>
+            <WrapPanel>
+                <Button
+                    x:Name="Button_KillAllEnemy"
+                    Click="Button_KillAllEnemy_Click"
+                    Content="击杀全部敌人" />
+                <Button
+                    x:Name="Button_KillAllPolice"
+                    Click="Button_KillAllPolice_Click"
+                    Content="击杀全部警察" />
+            </WrapPanel>
+            <!--  //////////////  -->
             <Separator Margin="0,5,0,10" />
             <WrapPanel>
                 <Button Click="Button_Telport_Click" Content="事务所" />
@@ -117,7 +143,6 @@
                 <Button Click="Button_Telport_Click" Content="会所" />
                 <Button Click="Button_Telport_Click" Content="虎鲸" />
             </WrapPanel>
-            <Separator Margin="0,5,0,10" />
             <WrapPanel>
                 <Button Click="Button_Telport_Click" Content="洛圣都改车王" />
                 <Button Click="Button_Telport_Click" Content="地铁隧道" />

@@ -48,6 +48,7 @@ public partial class MainWindow : Window
         hotKeys.AddKey(Keys.F4);
         hotKeys.AddKey(Keys.F5);
         hotKeys.AddKey(Keys.F6);
+        hotKeys.AddKey(Keys.F7);
         hotKeys.KeyDownEvent += HotKeys_KeyDownEvent;
 
         new Thread(UpdateGameStateThread)
@@ -85,6 +86,9 @@ public partial class MainWindow : Window
                 break;
             case Keys.F6:
                 Teleport.ToObjective();
+                break;
+            case Keys.F7:
+                Vehicle.FillHealth();
                 break;
         }
     }
@@ -170,6 +174,21 @@ public partial class MainWindow : Window
     private void Button_GetInOnlinePV_Click(object sender, RoutedEventArgs e)
     {
         Online.GetInOnlinePV();
+    }
+
+    private void Button_VehicleExtra_0x40_Click(object sender, RoutedEventArgs e)
+    {
+        Vehicle.Extras(0x40);
+    }
+
+    private void Button_KillAllEnemy_Click(object sender, RoutedEventArgs e)
+    {
+        World.KillAllEnemy();
+    }
+
+    private void Button_KillAllPolice_Click(object sender, RoutedEventArgs e)
+    {
+        World.KillAllPolice();
     }
 
     private void Button_Telport_Click(object sender, RoutedEventArgs e)

@@ -1,5 +1,4 @@
 ﻿using JobMenu.Native;
-using JobMenu.Offsets;
 
 namespace JobMenu.Features;
 
@@ -31,14 +30,5 @@ public static class Weapon
             offset_1 = Memory.Read<long>(pWeapon + count * 0x08);
             offset_2 = Memory.Read<long>(offset_1 + 0x08);
         }
-    }
-
-    public static void AmmoModifier(AmmoFlag flag)
-    {
-        var pCPedInventory = Game.GetCPedInventory();
-        if (!Memory.IsValid(pCPedInventory))
-            return;
-
-        Memory.Write(pCPedInventory + CPedInventory.AmmoModifier, (byte)flag);
     }
 }

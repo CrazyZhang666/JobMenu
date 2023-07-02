@@ -15,6 +15,9 @@ public static class Game
 
         Pointers.GlobalPTR = Memory.FindPattern(Mask.Global);
         Pointers.GlobalPTR = Memory.Rip_37(Pointers.GlobalPTR);
+
+        Pointers.ReplayInterfacePTR = Memory.FindPattern(Mask.ReplayInterface);
+        Pointers.ReplayInterfacePTR = Memory.Rip_37(Pointers.ReplayInterfacePTR);
     }
 
     public static long GetCPed()
@@ -29,9 +32,42 @@ public static class Game
         return Memory.Read<long>(pCPed + CPed.CPlayerInfo);
     }
 
+    public static bool GetCVehicle(out long pCVehicle)
+    {
+        pCVehicle = 0;
+
+        var pCPed = GetCPed();
+        var mInVehicle = Memory.Read<byte>(pCPed + CPed.InVehicle);
+
+        if (mInVehicle == 0x01)
+        {
+            pCVehicle = Memory.Read<long>(pCPed + CPed.CVehicle);
+            return true;
+        }
+
+        return false;
+    }
+
     public static long GetCPedInventory()
     {
         var pCPed = GetCPed();
         return Memory.Read<long>(pCPed + CPed.CPedInventory);
+    }
+
+    public static long GetCReplayInterface()
+    {
+        return Memory.Read<long>(Pointers.ReplayInterfacePTR);
+    }
+
+    public static long GetCPedInterface()
+    {
+        var pCReplayInterface = GetCReplayInterface();
+        return Memory.Read<long>(pCReplayInterface + CReplayInterface.CPedInterface);
+    }
+
+    public static long GetCPedList()
+    {
+        var pCPedInterface = GetCPedInterface();
+        return Memory.Read<long>(pCPedInterface + CPedInterface.CPedList);
     }
 }
