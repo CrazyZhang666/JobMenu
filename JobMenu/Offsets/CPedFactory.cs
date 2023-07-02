@@ -7,6 +7,7 @@ public struct CPedFactory
 
 public struct CPed                                      // 0x08
 {
+    public const int CBaseModelInfo = 0x20;
     public const int EntityType = 0x2B;                 // 实体类型 byte 156:Player 152:Other
     public const int Invisible = 0x2C;                  // 可见性 byte 0x01:on 0x24:off
     public const int CNavigation = 0x30;
@@ -26,6 +27,12 @@ public struct CPed                                      // 0x08
     public const int CPedWeaponManager = 0x10B8;
     public const int Seatbelt = 0x143C;                 // byte 55:false 56:true
     public const int Armor = 0x150C;                    // float, 50:Online 100:Story Mode
+}
+
+public struct CBaseModelInfo                            // 0x20
+{
+    public const int Hash = 0x18;                       // uint
+    public const int ModelType = 0x9D;                  // enum class eModelType : std::uint8_t
 }
 
 public struct CNavigation                               // 0x30

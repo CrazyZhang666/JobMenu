@@ -129,11 +129,15 @@
                 <Button
                     x:Name="Button_KillAllEnemy"
                     Click="Button_KillAllEnemy_Click"
-                    Content="击杀全部敌人" />
+                    Content="击杀敌人" />
                 <Button
                     x:Name="Button_KillAllPolice"
                     Click="Button_KillAllPolice_Click"
-                    Content="击杀全部警察" />
+                    Content="击杀警察" />
+                <Button
+                    x:Name="Button_RemoveAllCCTV"
+                    Click="Button_RemoveAllCCTV_Click"
+                    Content="移除CCTV" />
             </WrapPanel>
             <!--  //////////////  -->
             <Separator Margin="0,5,0,10" />

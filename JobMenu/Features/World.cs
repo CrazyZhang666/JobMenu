@@ -5,6 +5,22 @@ namespace JobMenu.Features;
 
 public static class World
 {
+    private static readonly List<uint> cctvCamObjects = new();
+
+    static World()
+    {
+        cctvCamObjects.Add(168901740);
+        cctvCamObjects.Add(3199670845);
+        cctvCamObjects.Add(4121760380);
+        cctvCamObjects.Add(3135545872);
+        cctvCamObjects.Add(548760764);
+        cctvCamObjects.Add(2954561821);
+        cctvCamObjects.Add(3940745496);
+        cctvCamObjects.Add(1919058329);
+        cctvCamObjects.Add(1449155105);
+        cctvCamObjects.Add(2410265639);
+    }
+
     public static void KillAllEnemy()
     {
         var pCPedList = Game.GetCPedList();
@@ -69,6 +85,31 @@ public static class World
                 Memory.Write(pCVehicle + CVehicle.HealthBody, -1.0f);
                 Memory.Write(pCVehicle + CVehicle.HealthPetrolTank, -1.0f);
                 Memory.Write(pCVehicle + CVehicle.HealthEngine, -1.0f);
+            }
+        }
+    }
+
+    public static void RemoveAllCCTV()
+    {
+        var pCObjectList = Game.GetCObjectList();
+
+        for (var i = 0; i < Base.oMaxObjects; i++)
+        {
+            var pCObject = Memory.Read<long>(pCObjectList + i * 0x10);
+            if (!Memory.IsValid(pCObject))
+                continue;
+
+            var pCBaseModelInfo = Memory.Read<long>(pCObject + CPed.CBaseModelInfo);
+            var hash = Memory.Read<uint>(pCBaseModelInfo + CBaseModelInfo.Hash);
+
+            if (cctvCamObjects.Contains(hash))
+            {
+                var pCNavigation = Memory.Read<long>(pCObject + CPed.CNavigation);
+
+                var vector3 = new Vector3(0, 0, 1024);
+
+                Memory.Write(pCObject + CPed.VisualX, vector3);
+                Memory.Write(pCNavigation + CNavigation.PositionX, vector3);
             }
         }
     }

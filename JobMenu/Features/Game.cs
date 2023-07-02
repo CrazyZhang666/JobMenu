@@ -65,9 +65,21 @@ public static class Game
         return Memory.Read<long>(pCReplayInterface + CReplayInterface.CPedInterface);
     }
 
+    public static long GetCObjectInterface()
+    {
+        var pCReplayInterface = GetCReplayInterface();
+        return Memory.Read<long>(pCReplayInterface + CReplayInterface.CObjectInterface);
+    }
+
     public static long GetCPedList()
     {
         var pCPedInterface = GetCPedInterface();
         return Memory.Read<long>(pCPedInterface + CPedInterface.CPedList);
+    }
+
+    public static long GetCObjectList()
+    {
+        var pCObjectInterface = GetCObjectInterface();
+        return Memory.Read<long>(pCObjectInterface + CObjectInterface.CObjectList);
     }
 }

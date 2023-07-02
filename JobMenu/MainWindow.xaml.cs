@@ -191,6 +191,11 @@ public partial class MainWindow : Window
         World.KillAllPolice();
     }
 
+    private void Button_RemoveAllCCTV_Click(object sender, RoutedEventArgs e)
+    {
+        World.RemoveAllCCTV();
+    }
+
     private void Button_Telport_Click(object sender, RoutedEventArgs e)
     {
         if (sender is Button button)
