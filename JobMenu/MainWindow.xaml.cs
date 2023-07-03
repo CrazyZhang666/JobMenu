@@ -3,6 +3,7 @@ using JobMenu.HotKey;
 using JobMenu.Native;
 using JobMenu.Offsets;
 using JobMenu.Features;
+using System.Media;
 
 namespace JobMenu;
 
@@ -23,6 +24,8 @@ public partial class MainWindow : Window
     private readonly Vector3 position2 = new(167.922f, -1770.150f, 29.087f);
     private readonly Vector3 position3 = new(-494.637f, 5191.791f, 89.161f);
 
+    public static readonly SoundPlayer SP_Click03 = new(Properties.Resources.Click_03);
+
     public MainWindow()
     {
         InitializeComponent();
@@ -33,6 +36,11 @@ public partial class MainWindow : Window
         base.OnMouseLeftButtonDown(e);
 
         this.DragMove();
+    }
+
+    private void PlayClickSound()
+    {
+        SP_Click03.Play();
     }
 
     ////////////////////////////////////////////////
@@ -70,6 +78,8 @@ public partial class MainWindow : Window
 
     private void HotKeys_KeyDownEvent(Keys key)
     {
+        PlayClickSound();
+
         switch (key)
         {
             case Keys.Oem3:
@@ -158,46 +168,64 @@ public partial class MainWindow : Window
 
     private void Button_FillAllAmmo_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         Weapon.FillAllAmmo();
     }
 
     private void Button_StopCutscene_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         Online.StopCutscene();
     }
 
     private void Button_Suicide_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         Player.Suicide();
     }
 
     private void Button_GetInOnlinePV_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         Online.GetInOnlinePV();
     }
 
     private void Button_VehicleExtra_0x40_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         Vehicle.Extras(0x40);
     }
 
     private void Button_KillEnemy_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         World.KillEnemy();
     }
 
     private void Button_KillPolice_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         World.KillPolice();
     }
 
     private void Button_RemoveCCTV_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         World.RemoveCCTV();
     }
 
     private void Button_Telport_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         if (sender is Button button)
         {
             var btntext = button.Content.ToString();
@@ -248,6 +276,8 @@ public partial class MainWindow : Window
 
     private void Button_ExitApp_Click(object sender, RoutedEventArgs e)
     {
+        PlayClickSound();
+
         this.Close();
     }
 }
