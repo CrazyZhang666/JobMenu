@@ -6,8 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Name="Window_Main"
     Title="GTA5 任务菜单"
-    Width="300"
-    Height="450"
+    Width="310"
+    Height="500"
     Closing="Window_Closing"
     FontFamily="/Assets/Fonts/#阿里巴巴普惠体 3.0 55 Regular"
     FontSize="14"
@@ -86,16 +86,16 @@
             </UniformGrid>
             <!--  //////////////  -->
             <Separator Margin="0,5,0,10" />
-            <UniformGrid Columns="2">
+            <WrapPanel>
                 <TextBlock
-                    Margin="0,0,0,5"
+                    Margin="0,0,5,5"
                     Foreground="#FFA819"
                     Text="✔ 玩家无敌" />
                 <TextBlock
-                    Margin="0,0,0,5"
+                    Margin="0,0,5,5"
                     Foreground="#FFA819"
                     Text="✔ 无限弹夹" />
-            </UniformGrid>
+            </WrapPanel>
         </StackPanel>
         <!--  //////////////  -->
         <StackPanel Grid.Row="2">
@@ -127,16 +127,16 @@
             </WrapPanel>
             <WrapPanel>
                 <Button
-                    x:Name="Button_KillAllEnemy"
-                    Click="Button_KillAllEnemy_Click"
+                    x:Name="Button_KillEnemy"
+                    Click="Button_KillEnemy_Click"
                     Content="击杀敌人" />
                 <Button
-                    x:Name="Button_KillAllPolice"
-                    Click="Button_KillAllPolice_Click"
+                    x:Name="Button_KillPolice"
+                    Click="Button_KillPolice_Click"
                     Content="击杀警察" />
                 <Button
-                    x:Name="Button_RemoveAllCCTV"
-                    Click="Button_RemoveAllCCTV_Click"
+                    x:Name="Button_RemoveCCTV"
+                    Click="Button_RemoveCCTV_Click"
                     Content="移除CCTV" />
             </WrapPanel>
             <!--  //////////////  -->
@@ -145,8 +145,17 @@
                 <Button Click="Button_Telport_Click" Content="事务所" />
                 <Button Click="Button_Telport_Click" Content="夜总会" />
                 <Button Click="Button_Telport_Click" Content="会所" />
-                <Button Click="Button_Telport_Click" Content="虎鲸" />
+                <Button Click="Button_Telport_Click" Content="改装铺" />
+                <Button Click="Button_Telport_Click" Content="办公室" />
             </WrapPanel>
+            <WrapPanel>
+                <Button Click="Button_Telport_Click" Content="虎鲸" />
+                <Button Click="Button_Telport_Click" Content="恐霸" />
+                <Button Click="Button_Telport_Click" Content="复仇者" />
+                <Button Click="Button_Telport_Click" Content="机动作战中心" />
+            </WrapPanel>
+            <!--  //////////////  -->
+            <Separator Margin="0,5,0,10" />
             <WrapPanel>
                 <Button Click="Button_Telport_Click" Content="洛圣都改车王" />
                 <Button Click="Button_Telport_Click" Content="地铁隧道" />

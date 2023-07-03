@@ -181,19 +181,19 @@ public partial class MainWindow : Window
         Vehicle.Extras(0x40);
     }
 
-    private void Button_KillAllEnemy_Click(object sender, RoutedEventArgs e)
+    private void Button_KillEnemy_Click(object sender, RoutedEventArgs e)
     {
-        World.KillAllEnemy();
+        World.KillEnemy();
     }
 
-    private void Button_KillAllPolice_Click(object sender, RoutedEventArgs e)
+    private void Button_KillPolice_Click(object sender, RoutedEventArgs e)
     {
-        World.KillAllPolice();
+        World.KillPolice();
     }
 
-    private void Button_RemoveAllCCTV_Click(object sender, RoutedEventArgs e)
+    private void Button_RemoveCCTV_Click(object sender, RoutedEventArgs e)
     {
-        World.RemoveAllCCTV();
+        World.RemoveCCTV();
     }
 
     private void Button_Telport_Click(object sender, RoutedEventArgs e)
@@ -213,8 +213,24 @@ public partial class MainWindow : Window
                 case "会所":
                     Teleport.ToBlips(492);
                     break;
+                case "改装铺":
+                    Teleport.ToBlips(779);
+                    break;
+                case "办公室":
+                    Teleport.ToBlips(475);
+                    break;
+                //////////////////////////
                 case "虎鲸":
                     Teleport.ToBlips(760);
+                    break;
+                case "恐霸":
+                    Teleport.ToBlips(632);
+                    break;
+                case "复仇者":
+                    Teleport.ToBlips(589);
+                    break;
+                case "机动作战中心":
+                    Teleport.ToBlips(564);
                     break;
                 //////////////////////////
                 case "洛圣都改车王":
