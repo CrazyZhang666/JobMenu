@@ -8,7 +8,7 @@ public static class Memory
 
     static Memory()
     {
-        GTA5Process = Process.GetProcessesByName("GTA5")[0];
+        GTA5Process = Process.GetProcessesByName("GTA5").First();
         GTA5ProHandle = GTA5Process.Handle;
         GTA5ProBaseAddress = GTA5Process.MainModule.BaseAddress.ToInt64();
     }

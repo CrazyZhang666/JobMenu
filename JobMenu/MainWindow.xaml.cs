@@ -3,7 +3,6 @@ using JobMenu.HotKey;
 using JobMenu.Native;
 using JobMenu.Offsets;
 using JobMenu.Features;
-using System.Media;
 
 namespace JobMenu;
 
@@ -129,7 +128,7 @@ public partial class MainWindow : Window
 
             ////////////////////////
 
-            Thread.Sleep(1000);
+            Thread.Sleep(200);
         }
     }
 
